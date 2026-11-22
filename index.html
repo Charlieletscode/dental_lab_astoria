@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Lab Astoria — Modern Dental Studio &amp; Appointments</title>
+    <style>
+        /* =====================================================================
+           DESIGN TOKENS — WARM EDITORIAL CREAM, STONE, CHARCOAL, TEAL & BRONZE
+           ===================================================================== */
+        :root {
+            --bg-cream: #faf6ef;
+            --bg-warm: #f2ece1;
+            --bg-stone: #e7dfd1;
+            --bg-charcoal: #1c1b18;
+            --bg-charcoal-elev: #262420;
+            --bg-charcoal-card: #2f2c27;
+
+            --ink-charcoal: #1c1b18;
+            --ink-body: #47433d;
+            --ink-muted: #767066;
+            --ink-on-dark: #faf6ef;
+            --ink-on-dark-muted: #c2b9aa;
+
+            --teal: #156f68;
+            --teal-deep: #0f544e;
+            --teal-soft: rgba(21, 111, 104, 0.11);
+            --teal-border: rgba(21, 111, 104, 0.30);
+
+            --bronze: #a86f38;
+            --bronze-light: #c88d52;
+            --bronze-soft: rgba(168, 111, 56, 0.13);
+            --bronze-border: rgba(168, 111, 56, 0.35);
+
+            --emerald-ok: #1f7a52;
+            --emerald-soft: rgba(31, 122, 82, 0.12);
+
+            --hairline-light: rgba(28, 27, 24, 0.11);
+            --hairline-medium: rgba(28, 27, 24, 0.19);
+            --hairline-dark: rgba(250, 246, 239, 0.13);
+
+            --font-display: Georgia, "Times New Roman", "Playfair Display", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --container-max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-cream);
+            color: var(--ink-charcoal);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--ink-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .serif-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.02em;
+        }
+
+        svg.ico {
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        /* =====================================================================
+           STICKY EDITORIAL TOP NAVIGATION
+           ===================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 45;
+            background: rgba(250, 246, 239, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--hairline-light);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .brand-crest {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--bg-charcoal);
+            color: var(--bg-cream);
+            border: 1px solid var(--bronze-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(28, 27, 24, 0.12);
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink-charcoal);
+            line-height: 1.1;
+        }
+
+        .brand-tag {
+            font-size: 10.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
+            color: var(--bronze);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--ink-body);
+        }
+
+        .nav-links a {
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink-charcoal);
+            border-bottom-color: var(--bronze);
+        }
+
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* =====================================================================
+           BUTTONS & EDITORIAL BADGES
+           ===================================================================== */
+        .btn {
+            appearance: none;
+            border: 1px solid var(--hairline-medium);
+            background: var(--bg-surface, #ffffff);
+            color: var(--ink-charcoal);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 9px 15px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            transition: all 0.16s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: var(--bg-warm);
+            border-color: var(--ink-charcoal);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(21, 111, 104, 0.24);
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-deep);
+            border-color: var(--teal-deep);
+            color: #ffffff;
+        }
+
+        .btn-bronze {
+            background: var(--bronze);
+            border-color: var(--bronze);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(168, 111, 56, 0.22);
+        }
+
+        .btn-bronze:hover {
+            background: #8f5c2b;
+            border-color: #8f5c2b;
+            color: #ffffff;
+        }
+
+        .btn-dark {
+            background: var(--bg-charcoal);
+            border-color: var(--bg-charcoal);
+            color: var(--ink-on-dark);
+        }
+
+        .btn-dark:hover {
+            background: #2e2c27;
+        }
+
+        .btn-sm {
+            padding: 6px 11px;
+            font-size: 12px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--teal);
+            background: var(--teal-soft);
+            border: 1px solid var(--teal-border);
+            padding: 4px 11px;
+            border-radius: 999px;
+        }
+
+        .eyebrow-bronze {
+            color: var(--bronze);
+            background: var(--bronze-soft);
+            border-color: var(--bronze-border);
+        }
+
+        /* =====================================================================
+           HERO SECTION — EDITORIAL STUDIO SHOWCASE + HOURS & ASTORIA HIGHLIGHT
+           ===================================================================== */
+        .hero-section {
+            padding: 48px 0 54px;
+            border-bottom: 1px solid var(--hairline-light);
+            background:
+                radial-gradient(circle at 88% 18%, rgba(21, 111, 104, 0.08), transparent 42%),
+                radial-gradient(circle at 12% 85%, rgba(168, 111, 56, 0.08), transparent 44%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2.1rem, 4.2vw, 3.35rem);
+            font-weight: 700;
+            line-height: 1.12;
+            color: var(--ink-charcoal);
+            margin-top: 14px;
+            margin-bottom: 16px;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--teal);
+        }
+
+        .hero-subcopy {
+            font-size: 15.5px;
+            color: var(--ink-body);
+            max-width: 580px;
+            margin-bottom: 24px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .hero-trust-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding-top: 18px;
+            border-top: 1px solid var(--hairline-light);
+            font-size: 12.5px;
+            color: var(--ink-muted);
+        }
+
+        .hero-trust-strip strong {
+            color: var(--ink-charcoal);
+            font-weight: 600;
+        }
+
+        /* Hero Right Editorial Studio Card */
+        .studio-highlight-card {
+            background: var(--bg-charcoal);
+            color: var(--ink-on-dark);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid rgba(200, 141, 82, 0.32);
+            box-shadow: 0 18px 42px rgba(28, 27, 24, 0.14);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .studio-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .open-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #6ee7b7;
+            background: rgba(110, 231, 183, 0.12);
+            border: 1px solid rgba(110, 231, 183, 0.28);
+            padding: 3px 9px;
+            border-radius: 999px;
+        }
+
+        .open-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #34d399;
+        }
+
+        .studio-card-title {
+            font-family: var(--font-display);
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .studio-card-addr {
+            font-size: 13px;
+            color: var(--ink-on-dark-muted);
+            line-height: 1.5;
+        }
+
+        .hours-mini-table {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--hairline-dark);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 12px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .hours-row .day {
+            color: var(--ink-on-dark-muted);
+        }
+
+        .hours-row .time {
+            font-family: var(--font-mono);
+            color: var(--bronze-light);
+            font-weight: 600;
+        }
+
+        /* =====================================================================
+           SECTION SHELLS & HEADERS
+           ===================================================================== */
+        .page-section {
+            padding: 64px 0;
+        }
+
+        .section-warm {
+            background: var(--bg-warm);
+            border-top: 1px solid var(--hairline-light);
+            border-bottom: 1px solid var(--hairline-light);
+        }
+
+        .section-dark {
+            background: var(--bg-charcoal);
+            color: var(--ink-on-dark);
+        }
+
+        .sec-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .sec-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.65rem, 3vw, 2.35rem);
+            font-weight: 700;
+            line-height: 1.18;
+            margin-top: 8px;
+        }
+
+        .sec-desc {
+            font-size: 14.5px;
+            color: var(--ink-body);
+            max-width: 520px;
+        }
+
+        .section-dark .sec-desc {
+            color: var(--ink-on-dark-muted);
+        }
+
+        /* =====================================================================
+           SERVICES SHOWCASE GRID
+           ===================================================================== */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .cat-tab {
+            appearance: none;
+            border: 1px solid var(--hairline-medium);
+            background: var(--bg-cream);
+            color: var(--ink-body);
+            font-family: var(--font-sans);
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.14s ease;
+        }
+
+        .cat-tab:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .cat-tab.active {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid var(--hairline-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 2px 10px rgba(28, 27, 24, 0.04);
+            transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(28, 27, 24, 0.08);
+            border-color: var(--teal-border);
+        }
+
+        .service-top-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bronze);
+        }
+
+        .service-dur {
+            font-family: var(--font-mono);
+            color: var(--ink-muted);
+            font-weight: 600;
+        }
+
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--ink-charcoal);
+            margin-top: 6px;
+            margin-bottom: 7px;
+            line-height: 1.25;
+        }
+
+        .service-desc {
+            font-size: 13.5px;
+            color: var(--ink-body);
+            line-height: 1.55;
+        }
+
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 14px;
+            border-top: 1px solid var(--hairline-light);
+        }
+
+        .service-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-price .amt {
+            font-family: var(--font-mono);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--ink-charcoal);
+        }
+
+        .service-price .note {
+            font-size: 11px;
+            color: var(--ink-muted);
+        }
+
+        /* =====================================================================
+           MEET THE DOCTORS / CLINICIANS ROSTER
+           ===================================================================== */
+        .clinicians-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .clinician-card {
+            background: #ffffff;
+            border: 1px solid var(--hairline-light);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+            box-shadow: 0 3px 12px rgba(28, 27, 24, 0.05);
+        }
+
+        .clinician-head {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 12px;
+        }
+
+        .monogram-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg-charcoal);
+            color: var(--bronze-light);
+            border: 1px solid var(--bronze-border);
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .clinician-name {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink-charcoal);
+            line-height: 1.2;
+        }
+
+        .clinician-spec {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--teal);
+            margin-top: 2px;
+        }
+
+        .clinician-bio {
+            font-size: 13.5px;
+            color: var(--ink-body);
+            line-height: 1.58;
+        }
+
+        .clinician-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 14px;
+            border-top: 1px solid var(--hairline-light);
+        }
+
+        .sms-phone-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .sms-phone-row .btn {
+            flex: 1;
+            font-size: 11.5px;
+            padding: 6px 8px;
+        }
+
+        /* =====================================================================
+           PATIENT REVIEWS / TESTIMONIALS
+           ===================================================================== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .review-card {
+            background: var(--bg-charcoal-card);
+            border: 1px solid var(--hairline-dark);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .stars-row {
+            color: var(--bronze-light);
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .review-quote {
+            font-family: var(--font-display);
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--ink-on-dark);
+            font-style: italic;
+        }
+
+        .review-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--ink-on-dark-muted);
+            padding-top: 12px;
+            border-top: 1px solid var(--hairline-dark);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--ink-on-dark);
+        }
+
+        /* =====================================================================
+           LOCATION & HOURS SECTION
+           ===================================================================== */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .info-panel {
+            background: #ffffff;
+            border: 1px solid var(--hairline-light);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .detail-block {
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--hairline-light);
+        }
+
+        .detail-block:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--bronze);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            color: var(--ink-charcoal);
+            font-weight: 500;
+        }
+
+        .map-card {
+            background: var(--bg-stone);
+            border: 1px solid var(--hairline-medium);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative architectural street grid SVG inside map card */
+        .map-grid-art {
+            background: #dfd5c3;
+            border: 1px solid var(--hairline-medium);
+            border-radius: var(--radius-sm);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .map-pin-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--bg-charcoal);
+            color: var(--bg-cream);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        .site-footer {
+            background: var(--bg-charcoal);
+            color: var(--ink-on-dark-muted);
+            padding: 26px 0;
+            border-top: 1px solid var(--hairline-dark);
+            font-size: 12.5px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        /* =====================================================================
+           INTERACTIVE APPOINTMENT BOOKING & SQUARE CHECKOUT MODAL
+           ===================================================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(28, 27, 24, 0.62);
+            backdrop-filter: blur(5px);
+            z-index: 80;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .booking-modal {
+            width: 100%;
+            max-width: 680px;
+            background: var(--bg-cream);
+            color: var(--ink-charcoal);
+            border: 1px solid var(--hairline-medium);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 26px 64px rgba(28, 27, 24, 0.36);
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .modal-top {
+            background: var(--bg-charcoal);
+            color: var(--ink-on-dark);
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .modal-top h3 {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .close-x-btn {
+            appearance: none;
+            border: 1px solid var(--hairline-dark);
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--ink-on-dark);
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-x-btn:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .modal-body {
+            padding: 20px 22px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 20px;
+            max-height: 82vh;
+            overflow-y: auto;
+        }
+
+        .form-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .f-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .f-group label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink-body);
+        }
+
+        .f-control {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid var(--hairline-medium);
+            border-radius: var(--radius-sm);
+            padding: 8px 10px;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            color: var(--ink-charcoal);
+            outline: none;
+        }
+
+        .f-control:focus {
+            border-color: var(--teal);
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .slot-chip {
+            appearance: none;
+            border: 1px solid var(--hairline-medium);
+            background: #ffffff;
+            color: var(--ink-charcoal);
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 6px 4px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.13s ease;
+        }
+
+        .slot-chip:hover {
+            border-color: var(--teal);
+        }
+
+        .slot-chip.selected {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: #ffffff;
+        }
+
+        /* Summary & Square Checkout Panel inside Modal */
+        .summary-card {
+            background: var(--bg-warm);
+            border: 1px solid var(--hairline-medium);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .sum-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12.5px;
+        }
+
+        .sum-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .sum-line .k {
+            color: var(--ink-muted);
+        }
+
+        .sum-line .v {
+            font-weight: 600;
+            color: var(--ink-charcoal);
+            text-align: right;
+        }
+
+        .sum-total {
+            padding-top: 10px;
+            border-top: 1px dashed var(--hairline-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .sum-total .amt {
+            font-family: var(--font-mono);
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        .square-box-note {
+            background: #ffffff;
+            border: 1px solid var(--teal-border);
+            border-radius: var(--radius-sm);
+            padding: 10px;
+            font-size: 11px;
+            color: var(--ink-body);
+            line-height: 1.45;
+        }
+
+        .square-url-mini {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--teal-deep);
+            background: var(--teal-soft);
+            padding: 4px 7px;
+            border-radius: 5px;
+            word-break: break-all;
+            margin-top: 5px;
+        }
+
+        .booking-confirmed-banner {
+            background: var(--emerald-soft);
+            border: 1px solid rgba(31, 122, 82, 0.35);
+            color: var(--emerald-ok);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .booking-confirmed-banner.visible {
+            display: block;
+        }
+
+        .modal-actions-col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Toast Banner */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(70px);
+            background: var(--bg-charcoal);
+            color: var(--ink-on-dark);
+            border: 1px solid var(--bronze-border);
+            font-size: 12.5px;
+            font-weight: 500;
+            padding: 9px 16px;
+            border-radius: 999px;
+            box-shadow: 0 12px 28px rgba(28, 27, 24, 0.28);
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.24s ease, opacity 0.22s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* =====================================================================
+           RESPONSIVE BREAKPOINTS
+           ===================================================================== */
+        @media (max-width: 980px) {
+            .hero-grid,
+            .location-grid,
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+            .services-grid,
+            .clinicians-grid,
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-grid,
+            .clinicians-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row-2 {
+                grid-template-columns: 1fr;
+            }
+            .brand-tag {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =====================================================================
+         1. STICKY EDITORIAL TOP NAVIGATION
+         ===================================================================== -->
+    <header class="site-header">
+        <div class="container nav-inner">
+            <a href="#top" class="brand-lockup">
+                <div class="brand-crest" aria-hidden="true">
+                    <svg class="ico" style="width:18px;height:18px;color:var(--bronze-light);" viewBox="0 0 24 24">
+                        <path d="M12 3c-3.5 0-6 2.2-6 5.5 0 2.4 1.1 4.4 1.7 7.5.4 2.1.8 5 2.1 5 1 0 1.4-2.8 2.2-4.5.8 1.7 1.2 4.5 2.2 4.5 1.3 0 1.7-2.9 2.1-5 .6-3.1 1.7-5.1 1.7-7.5C18 5.2 15.5 3 12 3Z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="brand-name">Dental Lab Astoria</div>
+                    <div class="brand-tag">Astoria &bull; Queens Studio</div>
+                </div>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="#services">Services</a>
+                <a href="#clinicians">Doctors &amp; Team</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#location">Location &amp; Hours</a>
+            </nav>
+
+            <div class="nav-cta-group">
+                <button type="button" class="btn btn-sm" id="navSquareDirectBtn" title="Open Square Appointments Checkout">
+                    <span>Square Checkout</span>
+                    <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" id="navBookBtn">Book Appointment</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. HERO SECTION — HEADLINE, SUBCOPY, BOOKING CTA & STUDIO HIGHLIGHT
+         ===================================================================== -->
+    <section class="hero-section" id="top">
+        <div class="container hero-grid">
+            <div>
+                <span class="eyebrow">
+                    <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Calm, Craft-Led Dentistry in Astoria
+                </span>
+
+                <h1 class="hero-headline">
+                    Thoughtful dental care with <em>unhurried chairside craft.</em>
+                </h1>
+
+                <p class="hero-subcopy">
+                    Welcome to Dental Lab Astoria—an intimate neighborhood studio combining gentle preventive hygiene, custom ceramic restorations, and transparent upfront estimates. Book your visit in seconds or proceed straight to Square checkout.
+                </p>
+
+                <div class="hero-actions">
+                    <button type="button" class="btn btn-primary" id="heroBookBtn">
+                        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <span>Book Appointment</span>
+                    </button>
+                    <a href="#services" class="btn">Explore Treatments &amp; Fees</a>
+                    <button type="button" class="btn btn-bronze" id="heroSquareBtn">
+                        <span>Square Booking Checkout</span>
+                        <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </button>
+                </div>
+
+                <div class="hero-trust-strip">
+                    <span><strong>31-08 30th Ave</strong>, Astoria, NY 11102</span>
+                    <span><strong>Same-Week</strong> Hygiene &amp; Consults</span>
+                    <span><strong>Digital X-Ray</strong> &amp; Shade Matching</span>
+                </div>
+            </div>
+
+            <aside class="studio-highlight-card" aria-label="Studio Hours and Location Highlight">
+                <div class="studio-badge-row">
+                    <span class="eyebrow eyebrow-bronze" style="background:rgba(200,141,82,0.16); color:var(--bronze-light);">Astoria Flagship</span>
+                    <span class="open-indicator"><span class="open-dot"></span>Accepting Bookings</span>
+                </div>
+
+                <div>
+                    <div class="studio-card-title">Dental Lab Astoria Studio</div>
+                    <div class="studio-card-addr">
+                        31-08 30th Ave, Suite 2B, Astoria, NY 11102<br>
+                        Steps from 30th Ave (N/W) &bull; (718) 555-0194
+                    </div>
+                </div>
+
+                <div class="hours-mini-table">
+                    <div class="hours-row"><span class="day">Mon – Tue</span><span class="time">08:30 – 18:30</span></div>
+                    <div class="hours-row"><span class="day">Wed – Thu</span><span class="time">09:00 – 19:00</span></div>
+                    <div class="hours-row"><span class="day">Friday</span><span class="time">08:30 – 16:30</span></div>
+                    <div class="hours-row"><span class="day">Saturday</span><span class="time">09:00 – 15:00</span></div>
+                    <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed (Emergency SMS)</span></div>
+                </div>
+
+                <button type="button" class="btn btn-primary" id="cardBookNowBtn" style="width:100%;">
+                    Reserve Chair Time &amp; Pass
+                </button>
+            </aside>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. SERVICES SHOWCASE GRID — DURATIONS, ESTIMATES & DIRECT BOOK TRIGGERS
+         ===================================================================== -->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="sec-header">
+                <div>
+                    <span class="eyebrow">Treatment Menu</span>
+                    <h2 class="sec-heading">Clear durations &amp; transparent fee estimates.</h2>
+                </div>
+                <p class="sec-desc">
+                    Every visit begins with a calm conversation and low-radiation digital diagnostics. Select any service below to pre-fill your appointment request.
+                </p>
+            </div>
+
+            <div class="category-tabs" id="serviceCategoryTabs" role="tablist" aria-label="Filter Services by Category">
+                <button type="button" class="cat-tab active" data-cat="all">All Services</button>
+                <button type="button" class="cat-tab" data-cat="Preventive">Preventive &amp; Hygiene</button>
+                <button type="button" class="cat-tab" data-cat="Restorative">Restorative &amp; Esthetic</button>
+                <button type="button" class="cat-tab" data-cat="Ortho & Urgent">Ortho &amp; Urgent Care</button>
+            </div>
+
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         4. MEET THE DOCTORS / CLINICIANS ROSTER
+         ===================================================================== -->
+    <section class="page-section section-warm" id="clinicians">
+        <div class="container">
+            <div class="sec-header">
+                <div>
+                    <span class="eyebrow eyebrow-bronze">Clinical Roster</span>
+                    <h2 class="sec-heading">Meet the doctors &amp; clinicians.</h2>
+                </div>
+                <p class="sec-desc">
+                    Dedicated providers who take time to explain options clearly without pressure. Book directly with a clinician or send a quick SMS/phone inquiry.
+                </p>
+            </div>
+
+            <div class="clinicians-grid" id="cliniciansGrid"></div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         5. PATIENT REVIEWS / TESTIMONIALS
+         ===================================================================== -->
+    <section class="page-section section-dark" id="reviews">
+        <div class="container">
+            <div class="sec-header">
+                <div>
+                    <span class="eyebrow eyebrow-bronze" style="background:rgba(200,141,82,0.16); color:var(--bronze-light);">Neighborhood Notes</span>
+                    <h2 class="sec-heading" style="color:var(--ink-on-dark);">Trusted by Astoria patients.</h2>
+                </div>
+                <p class="sec-desc">
+                    Reflections from neighbors who visit us for routine cleanings, tooth-colored bonding, clear aligners, and same-day relief.
+                </p>
+            </div>
+
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         6. CLINIC LOCATION & HOURS DETAILS
+         ===================================================================== -->
+    <section class="page-section" id="location">
+        <div class="container">
+            <div class="sec-header">
+                <div>
+                    <span class="eyebrow">Visit the Studio</span>
+                    <h2 class="sec-heading">Location, transit &amp; studio hours.</h2>
+                </div>
+                <p class="sec-desc">
+                    Conveniently located on 30th Avenue in Astoria with step-free elevator access and flexible morning or evening openings.
+                </p>
+            </div>
+
+            <div class="location-grid">
+                <div class="info-panel">
+                    <div class="detail-block">
+                        <div class="detail-label">Studio Address</div>
+                        <div class="detail-value">Dental Lab Astoria &bull; 31-08 30th Ave, Suite 2B, Astoria, NY 11102</div>
+                    </div>
+
+                    <div class="detail-block">
+                        <div class="detail-label">Direct Phone &amp; SMS Desk</div>
+                        <div class="detail-value mono">(718) 555-0194 &bull; hello@dentallabastoria.example</div>
+                    </div>
+
+                    <div class="detail-block">
+                        <div class="detail-label">Weekly Hours</div>
+                        <div class="detail-value" style="font-size:13px; color:var(--ink-body); line-height:1.7;">
+                            Mon &amp; Tue: 08:30 – 18:30 &bull; Wed &amp; Thu: 09:00 – 19:00<br>
+                            Fri: 08:30 – 16:30 &bull; Sat: 09:00 – 15:00 &bull; Sun: Closed
+                        </div>
+                    </div>
+
+                    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                        <button type="button" class="btn btn-primary btn-sm" id="locBookBtn">Book Appointment</button>
+                        <button type="button" class="btn btn-sm" id="locCopyAddrBtn">Copy Address</button>
+                        <button type="button" class="btn btn-bronze btn-sm" id="locSquareBtn">Square Checkout</button>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <div class="map-pin-pill">
+                        <svg class="ico" style="color:var(--bronze-light);" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>30th Ave Corridor &bull; Astoria, NY</span>
+                    </div>
+
+                    <div class="map-grid-art">
+                        <div style="font-family:var(--font-display); font-size:17px; font-weight:700; color:var(--ink-charcoal);">
+                            Easy Transit &amp; Neighborhood Access
+                        </div>
+                        <p style="font-size:13px; color:var(--ink-body);">
+                            Two blocks from the <strong>30th Ave N/W station</strong> and served by the Q18 and Q102 bus lines. Street meter parking along 31st Street and 30th Avenue.
+                        </p>
+                        <div class="mono" style="font-size:11.5px; color:var(--teal-deep); font-weight:600;">
+                            LAT 40.7664 &bull; LNG -73.9209
+                        </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--ink-body);">
+                        <span>Need help picking a time slot?</span>
+                        <a href="sms:+17185550194?body=Hi%20Dental%20Lab%20Astoria%2C%20I%20would%20like%20help%20booking%20an%20appointment." class="btn btn-dark btn-sm">Text Front Desk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         FOOTER
+         ===================================================================== -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <strong style="color:var(--ink-on-dark);">Dental Lab Astoria</strong> &bull; Client Appointment &amp; Square Booking Studio
+            </div>
+            <div class="mono" style="font-size:11.5px;">
+                Square Location: L528HFTZJWQPB &bull; Booking: pyacih532nd9si
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         INTERACTIVE APPOINTMENT BOOKING & SQUARE CHECKOUT MODAL
+         ===================================================================== -->
+    <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+        <div class="booking-modal">
+            <div class="modal-top">
+                <div>
+                    <h3 id="bookingModalTitle">Book Your Dental Visit</h3>
+                    <div style="font-size:11.5px; color:var(--ink-on-dark-muted);">
+                        Choose clinician, service, time slot &amp; download a calendar pass or launch Square checkout
+                    </div>
+                </div>
+                <button type="button" class="close-x-btn" id="closeBookingModalBtn" aria-label="Close Booking Modal">
+                    <svg class="ico" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Left Column: Booking Form -->
+                <div class="form-stack">
+                    <div class="f-group">
+                        <label for="bkServiceSelect">1. Select Service</label>
+                        <select class="f-control" id="bkServiceSelect"></select>
+                    </div>
+
+                    <div class="f-group">
+                        <label for="bkClinicianSelect">2. Select Doctor / Clinician</label>
+                        <select class="f-control" id="bkClinicianSelect"></select>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="f-group">
+                            <label for="bkDateInput">3. Preferred Date</label>
+                            <input type="date" class="f-control mono" id="bkDateInput">
+                        </div>
+                        <div class="f-group">
+                            <label>4. Time Slot</label>
+                            <div class="slots-grid" id="bkTimeSlotsGrid"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="f-group">
+                            <label for="bkPatientName">Patient Full Name</label>
+                            <input type="text" class="f-control" id="bkPatientName" placeholder="e.g., Jordan Alvarez">
+                        </div>
+                        <div class="f-group">
+                            <label for="bkPatientContact">Phone or Email</label>
+                            <input type="text" class="f-control" id="bkPatientContact" placeholder="(718) 555-0142">
+                        </div>
+                    </div>
+
+                    <div class="f-group">
+                        <label for="bkNotesInput">Comfort / Clinical Notes (Optional)</label>
+                        <input type="text" class="f-control" id="bkNotesInput" placeholder="Cold sensitivity, preferred reminders, insurance note...">
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Summary, Pass Download & Square Checkout -->
+                <div class="summary-card">
+                    <div>
+                        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--bronze); margin-bottom:10px;">
+                            Appointment Summary
+                        </div>
+
+                        <div class="sum-lines">
+                            <div class="sum-line"><span class="k">Service</span><span class="v" id="sumServiceVal">—</span></div>
+                            <div class="sum-line"><span class="k">Clinician</span><span class="v" id="sumClinicianVal">—</span></div>
+                            <div class="sum-line"><span class="k">Date &amp; Time</span><span class="v mono" id="sumDateTimeVal">—</span></div>
+                            <div class="sum-line"><span class="k">Duration</span><span class="v mono" id="sumDurationVal">—</span></div>
+                        </div>
+
+                        <div class="sum-total" style="margin-top:12px;">
+                            <span style="font-size:12px; font-weight:600; color:var(--ink-body);">Est. Fee</span>
+                            <span class="amt" id="sumFeeVal">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="booking-confirmed-banner" id="bookingConfirmedBanner">
+                        Booking pass saved locally! Download your .ics calendar invite or open Square checkout.
+                    </div>
+
+                    <div class="square-box-note">
+                        <strong>Square Appointments Checkout:</strong>
+                        <div class="square-url-mini" id="modalSquareUrlText">
+                            https://book.squareup.com/appointments/pyacih532nd9si/location/L528HFTZJWQPB/checkout
+                        </div>
+                    </div>
+
+                    <div class="modal-actions-col">
+                        <button type="button" class="btn btn-primary" id="confirmSaveBookingBtn">
+                            <svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Confirm &amp; Download .ICS Pass</span>
+                        </button>
+
+                        <button type="button" class="btn btn-bronze" id="modalLaunchSquareBtn">
+                            <span>Proceed to Square Checkout</span>
+                            <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </button>
+
+                        <button type="button" class="btn btn-sm" id="modalCopySquareBtn">
+                            <svg class="ico" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span>Copy Square Checkout Link</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toastBanner">
+        <svg class="ico" style="color:#6ee7b7;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="toastMessage">Done</span>
+    </div>
+
+    <script>
+    (function () {
+        'use strict';
+
+        // =====================================================================
+        // STUDIO DATA & SQUARE CHECKOUT URL
+        // =====================================================================
+        const SQUARE_CHECKOUT_URL = 'https://book.squareup.com/appointments/pyacih532nd9si/location/L528HFTZJWQPB/checkout';
+        const STORAGE_KEY = 'dental_lab_astoria_booking_v1';
+        const STUDIO_PHONE_TEL = 'tel:+17185550194';
+        const STUDIO_PHONE_SMS = 'sms:+17185550194';
+
+        const SERVICES = [
+            {
+                id: 'srv-exam-xray',
+                category: 'Preventive',
+                title: 'New Patient Exam & Digital X-Rays',
+                duration: 45,
+                price: 145,
+                note: 'Includes 3D scan & gum charting',
+                desc: 'Thorough oral evaluation, low-dose digital radiographs, and a clear, unhurried care roadmap.'
+            },
+            {
+                id: 'srv-hygiene',
+                category: 'Preventive',
+                title: 'Gentle Hygiene & Airflow Polish',
+                duration: 60,
+                price: 170,
+                note: 'Warm water & gentle stain polish',
+                desc: 'Ultrasonic scaling and warm-water polishing tailored for sensitive teeth and everyday maintenance.'
+            },
+            {
+                id: 'srv-bonding',
+                category: 'Restorative',
+                title: 'Tooth-Colored Composite Bonding',
+                duration: 60,
+                price: 250,
+                note: 'Custom hand-layered shade',
+                desc: 'Seamless repair for small chips, worn edges, or spacing using natural enamel-matched resin.'
+            },
+            {
+                id: 'srv-crown',
+                category: 'Restorative',
+                title: 'Custom Ceramic Crown & Scan',
+                duration: 90,
+                price: 980,
+                note: 'Digital impression & temporary',
+                desc: 'Precision-milled ceramic restoration crafted for natural translucency, bite balance, and longevity.'
+            },
+            {
+                id: 'srv-ortho',
+                category: 'Ortho & Urgent',
+                title: 'Clear Aligner & Bite Consult',
+                duration: 30,
+                price: 95,
+                note: 'Digital arch preview included',
+                desc: 'Focused alignment assessment with a visual simulation of expected tooth movement and timeline.'
+            },
+            {
+                id: 'srv-urgent',
+                category: 'Ortho & Urgent',
+                title: 'Same-Day Toothache & Relief Visit',
+                duration: 40,
+                price: 125,
+                note: 'Priority chair triage',
+                desc: 'Prompt diagnostic exam and targeted relief for sudden sensitivity, lost fillings, or discomfort.'
+            }
+        ];
+
+        const CLINICIANS = [
+            {
+                id: 'doc-elena',
+                name: 'Dr. Elena Rostova, DDS',
+                initials: 'ER',
+                specialty: 'Restorative & Esthetic Dentistry',
+                bio: 'Focuses on conservative tooth-colored bonding, custom ceramic crowns, and natural smile proportions with a calm, unhurried chairside manner.'
+            },
+            {
+                id: 'doc-marcus',
+                name: 'Dr. Marcus Chen, DMD',
+                initials: 'MC',
+                specialty: 'Clear Aligners, Bite & Urgent Care',
+                bio: 'Specializes in subtle alignment refinements, bite harmony, and calm same-day problem solving when an unexpected tooth issue pops up.'
+            },
+            {
+                id: 'doc-sarah',
+                name: 'Sarah Jenkins, RDH',
+                initials: 'SJ',
+                specialty: 'Lead Registered Dental Hygienist',
+                bio: 'Known across Astoria for gentle cleanings, warm-water comfort protocols, and practical home-care routines that fit real life.'
+            }
+        ];
+
+        const REVIEWS = [
+            {
+                stars: '★★★★★',
+                quote: '“The calmest dental visit I have ever had in Queens. Everything was explained clearly without any rush or sales pressure.”',
+                author: 'Hannah Abbott',
+                tag: 'Hygiene & Exam · Astoria'
+            },
+            {
+                stars: '★★★★★',
+                quote: '“Chipped a front tooth two days before a trip—Dr. Rostova matched the shade so cleanly I can’t tell where the repair is.”',
+                author: 'Olivia Morales',
+                tag: 'Composite Bonding · Ditmars'
+            },
+            {
+                stars: '★★★★★',
+                quote: '“Booking took under a minute, the studio feels warm and modern, and my aligner check-ins always start right on time.”',
+                author: 'Daniel Kim',
+                tag: 'Aligner Consult · Steinway'
+            }
+        ];
+
+        const TIME_SLOTS = ['09:00', '10:00', '11:15', '13:00', '14:30', '16:00'];
+
+        // =====================================================================
+        // STATE & UTILITIES
+        // =====================================================================
+        function defaultDateStr() {
+            const d = new Date();
+            d.setDate(d.getDate() + 1);
+            return d.toISOString().slice(0, 10);
+        }
+
+        let bookingState = loadBookingState();
+
+        function loadBookingState() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && parsed.serviceId && parsed.clinicianId) {
+                        return parsed;
+                    }
+                }
+            } catch (e) {
+                // Ignore storage errors
+            }
+            return {
+                activeCategory: 'all',
+                serviceId: SERVICES[0].id,
+                clinicianId: CLINICIANS[0].id,
+                date: defaultDateStr(),
+                timeSlot: TIME_SLOTS[1],
+                patientName: '',
+                patientContact: '',
+                notes: '',
+                savedBookings: []
+            };
+        }
+
+        function saveBookingState() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(bookingState));
+            } catch (e) {
+                // Ignore storage errors
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        let toastTimeout = null;
+        function showToast(msg) {
+            const toast = document.getElementById('toastBanner');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 2600);
+        }
+
+        function launchSquareCheckout(contextLabel = '') {
+            try {
+                window.open(SQUARE_CHECKOUT_URL, '_blank', 'noopener,noreferrer');
+            } catch (e) {
+                // Fallback if popup blocked
+            }
+            showToast(contextLabel ? `Opening Square Checkout for ${contextLabel}` : 'Opening Square Appointments checkout');
+        }
+
+        function copySquareUrl() {
+            const helper = document.createElement('textarea');
+            helper.value = SQUARE_CHECKOUT_URL;
+            helper.style.position = 'fixed';
+            helper.style.opacity = '0';
+            document.body.appendChild(helper);
+            helper.select();
+            try {
+                document.execCommand('copy');
+                showToast('Copied Square checkout link to clipboard');
+            } catch (e) {
+                showToast('Unable to copy link automatically');
+            }
+            document.body.removeChild(helper);
+        }
+
+        function copyText(text, label) {
+            const helper = document.createElement('textarea');
+            helper.value = text;
+            helper.style.position = 'fixed';
+            helper.style.opacity = '0';
+            document.body.appendChild(helper);
+            helper.select();
+            try {
+                document.execCommand('copy');
+                showToast(`${label} copied`);
+            } catch (e) {
+                showToast('Copy unavailable');
+            }
+            document.body.removeChild(helper);
+        }
+
+        // =====================================================================
+        // RENDER SECTIONS
+        // =====================================================================
+        function renderServices() {
+            const grid = document.getElementById('servicesGrid');
+            const filtered = bookingState.activeCategory === 'all'
+                ? SERVICES
+                : SERVICES.filter(s => s.category === bookingState.activeCategory);
+
+            grid.innerHTML = '';
+            filtered.forEach(srv => {
+                const card = document.createElement('article');
+                card.className = 'service-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="service-top-meta">
+                            <span>${escapeHtml(srv.category)}</span>
+                            <span class="service-dur">${srv.duration} min</span>
+                        </div>
+                        <h3 class="service-title">${escapeHtml(srv.title)}</h3>
+                        <p class="service-desc">${escapeHtml(srv.desc)}</p>
+                    </div>
+                    <div class="service-footer">
+                        <div class="service-price">
+                            <span class="amt">$${srv.price}</span>
+                            <span class="note">${escapeHtml(srv.note)}</span>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-sm book-srv-btn">Book</button>
+                    </div>
+                `;
+
+                card.querySelector('.book-srv-btn').addEventListener('click', () => {
+                    openBookingModal({ serviceId: srv.id });
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+        function renderClinicians() {
+            const grid = document.getElementById('cliniciansGrid');
+            grid.innerHTML = '';
+
+            CLINICIANS.forEach(doc => {
+                const card = document.createElement('article');
+                card.className = 'clinician-card';
+
+                const smsBody = encodeURIComponent(`Hi Dental Lab Astoria, I have a question about booking with ${doc.name}.`);
+                const smsHref = `${STUDIO_PHONE_SMS}?body=${smsBody}`;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="clinician-head">
+                            <div class="monogram-avatar" aria-hidden="true">${escapeHtml(doc.initials)}</div>
+                            <div>
+                                <h3 class="clinician-name">${escapeHtml(doc.name)}</h3>
+                                <div class="clinician-spec">${escapeHtml(doc.specialty)}</div>
+                            </div>
+                        </div>
+                        <p class="clinician-bio">${escapeHtml(doc.bio)}</p>
+                    </div>
+                    <div class="clinician-actions">
+                        <button type="button" class="btn btn-primary btn-sm book-doc-btn">
+                            Book with ${escapeHtml(doc.name.split(',')[0])}
+                        </button>
+                        <div class="sms-phone-row">
+                            <a href="${smsHref}" class="btn btn-sm">
+                                <svg class="ico" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                <span>Quick SMS</span>
+                            </a>
+                            <a href="${STUDIO_PHONE_TEL}" class="btn btn-sm">
+                                <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <span>Call Desk</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                card.querySelector('.book-doc-btn').addEventListener('click', () => {
+                    openBookingModal({ clinicianId: doc.id });
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+        function renderReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            grid.innerHTML = '';
+
+            REVIEWS.forEach(rev => {
+                const card = document.createElement('article');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="stars-row" aria-label="5 out of 5 stars">${rev.stars}</div>
+                        <p class="review-quote">${escapeHtml(rev.quote)}</p>
+                    </div>
+                    <div class="review-meta">
+                        <span class="review-author">${escapeHtml(rev.author)}</span>
+                        <span>${escapeHtml(rev.tag)}</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // =====================================================================
+        // MODAL LOGIC, SUMMARY & .ICS CALENDAR PASS DOWNLOAD
+        // =====================================================================
+        function populateModalControls() {
+            const srvSel = document.getElementById('bkServiceSelect');
+            srvSel.innerHTML = '';
+            SERVICES.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s.id;
+                opt.textContent = `${s.title} (${s.duration}m · $${s.price})`;
+                if (s.id === bookingState.serviceId) opt.selected = true;
+                srvSel.appendChild(opt);
+            });
+
+            const docSel = document.getElementById('bkClinicianSelect');
+            docSel.innerHTML = '';
+            CLINICIANS.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = `${c.name} — ${c.specialty}`;
+                if (c.id === bookingState.clinicianId) opt.selected = true;
+                docSel.appendChild(opt);
+            });
+
+            document.getElementById('bkDateInput').value = bookingState.date;
+            document.getElementById('bkPatientName').value = bookingState.patientName || '';
+            document.getElementById('bkPatientContact').value = bookingState.patientContact || '';
+            document.getElementById('bkNotesInput').value = bookingState.notes || '';
+
+            const slotsGrid = document.getElementById('bkTimeSlotsGrid');
+            slotsGrid.innerHTML = '';
+            TIME_SLOTS.forEach(slot => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `slot-chip ${bookingState.timeSlot === slot ? 'selected' : ''}`;
+                btn.textContent = slot;
+                btn.addEventListener('click', () => {
+                    bookingState.timeSlot = slot;
+                    saveBookingState();
+                    populateModalControls();
+                    updateBookingSummary();
+                });
+                slotsGrid.appendChild(btn);
+            });
+        }
+
+        function updateBookingSummary() {
+            const srv = SERVICES.find(s => s.id === bookingState.serviceId) || SERVICES[0];
+            const doc = CLINICIANS.find(c => c.id === bookingState.clinicianId) || CLINICIANS[0];
+
+            document.getElementById('sumServiceVal').textContent = srv.title;
+            document.getElementById('sumClinicianVal').textContent = doc.name;
+            document.getElementById('sumDateTimeVal').textContent = `${bookingState.date} · ${bookingState.timeSlot}`;
+            document.getElementById('sumDurationVal').textContent = `${srv.duration} min`;
+            document.getElementById('sumFeeVal').textContent = `$${srv.price}`;
+        }
+
+        function openBookingModal({ serviceId = null, clinicianId = null } = {}) {
+            if (serviceId) bookingState.serviceId = serviceId;
+            if (clinicianId) bookingState.clinicianId = clinicianId;
+            saveBookingState();
+
+            document.getElementById('bookingConfirmedBanner').classList.remove('visible');
+            populateModalControls();
+            updateBookingSummary();
+            document.getElementById('bookingModal').classList.add('open');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('open');
+        }
+
+        function downloadCalendarInvite() {
+            const srv = SERVICES.find(s => s.id === bookingState.serviceId) || SERVICES[0];
+            const doc = CLINICIANS.find(c => c.id === bookingState.clinicianId) || CLINICIANS[0];
+            const patient = (bookingState.patientName || 'Patient').trim();
+
+            const [y, m, d] = (bookingState.date || defaultDateStr()).split('-').map(Number);
+            const [hh, mm] = (bookingState.timeSlot || '10:00').split(':').map(Number);
+
+            const startObj = new Date(y, (m || 1) - 1, d || 1, hh || 10, mm || 0, 0);
+            const endObj = new Date(startObj.getTime() + srv.duration * 60000);
+
+            function toIcsStamp(dt) {
+                const pad = n => String(n).padStart(2, '0');
+                return `${dt.getFullYear()}${pad(dt.getMonth() + 1)}${pad(dt.getDate())}T${pad(dt.getHours())}${pad(dt.getMinutes())}00`;
+            }
+
+            const uid = `dentallabastoria-${Date.now()}@dentallabastoria.example`;
+            const summary = `Dental Visit: ${srv.title} — ${doc.name}`;
+            const description = [
+                `Patient: ${patient}`,
+                `Clinician: ${doc.name}`,
+                `Service: ${srv.title} (${srv.duration} min · Est. $${srv.price})`,
+                bookingState.notes ? `Notes: ${bookingState.notes}` : '',
+                `Square Checkout: ${SQUARE_CHECKOUT_URL}`
+            ].filter(Boolean).join('\\n');
+
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Dental Lab Astoria//Booking Pass//EN',
+                'BEGIN:VEVENT',
+                `UID:${uid}`,
+                `DTSTAMP:${toIcsStamp(new Date())}Z`,
+                `DTSTART:${toIcsStamp(startObj)}`,
+                `DTEND:${toIcsStamp(endObj)}`,
+                `SUMMARY:${summary}`,
+                'LOCATION:Dental Lab Astoria, 31-08 30th Ave, Suite 2B, Astoria, NY 11102',
+                `DESCRIPTION:${description}`,
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `dental-lab-astoria-${bookingState.date}-${bookingState.timeSlot.replace(':', '')}.ics`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // =====================================================================
+        // EVENT BINDING
+        // =====================================================================
+        function bindEvents() {
+            // Category filter tabs
+            document.querySelectorAll('#serviceCategoryTabs .cat-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('#serviceCategoryTabs .cat-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    bookingState.activeCategory = tab.dataset.cat;
+                    saveBookingState();
+                    renderServices();
+                });
+            });
+
+            // Open booking modal triggers
+            ['navBookBtn', 'heroBookBtn', 'cardBookNowBtn', 'locBookBtn'].forEach(id => {
+                document.getElementById(id).addEventListener('click', () => openBookingModal());
+            });
+
+            // Direct Square Checkout triggers
+            ['navSquareDirectBtn', 'heroSquareBtn', 'locSquareBtn'].forEach(id => {
+                document.getElementById(id).addEventListener('click', () => launchSquareCheckout());
+            });
+
+            document.getElementById('locCopyAddrBtn').addEventListener('click', () => {
+                copyText('Dental Lab Astoria, 31-08 30th Ave, Suite 2B, Astoria, NY 11102', 'Studio address');
+            });
+
+            // Modal controls
+            document.getElementById('closeBookingModalBtn').addEventListener('click', closeBookingModal);
+            document.getElementById('bookingModal').addEventListener('click', (e) => {
+                if (e.target.id === 'bookingModal') closeBookingModal();
+            });
+
+            document.getElementById('bkServiceSelect').addEventListener('change', (e) => {
+                bookingState.serviceId = e.target.value;
+                saveBookingState();
+                updateBookingSummary();
+            });
+
+            document.getElementById('bkClinicianSelect').addEventListener('change', (e) => {
+                bookingState.clinicianId = e.target.value;
+                saveBookingState();
+                updateBookingSummary();
+            });
+
+            document.getElementById('bkDateInput').addEventListener('change', (e) => {
+                if (e.target.value) {
+                    bookingState.date = e.target.value;
+                    saveBookingState();
+                    updateBookingSummary();
+                }
+            });
+
+            document.getElementById('bkPatientName').addEventListener('input', (e) => {
+                bookingState.patientName = e.target.value;
+                saveBookingState();
+            });
+
+            document.getElementById('bkPatientContact').addEventListener('input', (e) => {
+                bookingState.patientContact = e.target.value;
+                saveBookingState();
+            });
+
+            document.getElementById('bkNotesInput').addEventListener('input', (e) => {
+                bookingState.notes = e.target.value;
+                saveBookingState();
+            });
+
+            document.getElementById('confirmSaveBookingBtn').addEventListener('click', () => {
+                bookingState.savedBookings.push({
+                    id: 'bk-' + Date.now(),
+                    serviceId: bookingState.serviceId,
+                    clinicianId: bookingState.clinicianId,
+                    date: bookingState.date,
+                    timeSlot: bookingState.timeSlot,
+                    patientName: bookingState.patientName.trim() || 'Guest Patient',
+                    patientContact: bookingState.patientContact.trim()
+                });
+                saveBookingState();
+                downloadCalendarInvite();
+                document.getElementById('bookingConfirmedBanner').classList.add('visible');
+                showToast('Booking confirmed & .ics calendar invite downloaded');
+            });
+
+            document.getElementById('modalLaunchSquareBtn').addEventListener('click', () => {
+                const srv = SERVICES.find(s => s.id === bookingState.serviceId);
+                launchSquareCheckout(srv ? srv.title : '');
+            });
+
+            document.getElementById('modalCopySquareBtn').addEventListener('click', copySquareUrl);
+        }
+
+        // =====================================================================
+        // INIT
+        // =====================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            renderServices();
+            renderClinicians();
+            renderReviews();
+            bindEvents();
+        });
+    })();
+    </script>
+</body>
+</html>
